@@ -1,0 +1,18 @@
+0) install npm package of tailwind first 
+1) @import "tailwindcss";
+2) npx @tailwindcss/cli -i ./input.css -o ./tailwind.css --watch
+3) @custom-variant dark (&:where(.dark, .dark *)); // By default dark theme is applied according to our system preferences but we want to apply dark mode on toggling. so that's why this.
+4) /* These are the tailwind variables I just need to replace the color keyword with bg-b-one or text-b-one*/
+@theme{
+        /* Light Mode Colors */
+        --color-bg-light: #fff;   /* Background */
+        --color-text-light: #000; /* Text */
+        --color-primary-light: #3F5BD9; /* Primary Accent */
+        --color-secondary-light: #2A394E; /* Secondary Accent */
+      
+        /* Dark Mode Colors */
+        --color-bg-dark: #000;    /* Background */
+        --color-text-dark: #fff;  /* Text */
+        --color-primary-dark: #3F5BD9; /* Primary Accent */
+        --color-secondary-dark: #2A394E; /* Secondary Accent */
+}
