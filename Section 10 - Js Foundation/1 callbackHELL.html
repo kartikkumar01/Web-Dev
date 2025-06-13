@@ -1,0 +1,119 @@
+<html>
+
+<body style="background-color : black">
+
+</body>
+<script>
+    //CALLBACK HELL (Many Dependent async tasks)
+    /*function bookVenue (callback){
+        setTimeout(function(){
+            console.log('Venue Booked')
+            callback()
+        },1000)
+    }
+    function orderCake (callback){
+        setTimeout(function(){
+            console.log('Cake Ordered')
+            //callback() Inversion of control problem here because function is not called back
+        },1000)
+    }
+    function sendInvites (callback){
+        setTimeout(function(){
+            console.log('Invitations Send')
+        },1000)
+        callback()
+    }
+    function buyDecoration (callback){
+        setTimeout(function(){
+            console.log('Decoration Purchased')
+            callback()
+        },1000)
+    }
+    function setupVenue (callback){
+        setTimeout(function(){
+            console.log('Venue Setted Up')
+            callback()
+        },1000)
+    }
+
+
+    bookVenue(function(){
+        orderCake(function(){
+            sendInvites(function(){
+                buyDecoration(function(){
+                    setupVenue(function(){
+                        console.log('Party Ready')
+                    })
+                })
+            })
+        })
+    })
+    */
+
+    //Problems of Callback HELL - Hard Readablity & Inversion of control(Kisi or pe trust karna ki vo hamare diye hue function ko call karega)
+    //Solutions to avoid callback hell - promises
+    //Promises are used to handle the async tasks effectively which removes the problem of callback hell
+    //To handle promises - .then()&.catch() / async-await
+
+    function bookVenue (){
+        return new Promise(function(resolve, reject){
+            setTimeout(function(){
+                console.log('Venue Booked')
+                resolve()
+            },1000)
+        })
+    }
+    function orderCake (){
+        return new Promise(function(resolve, reject){
+            setTimeout(function(){
+                console.log('Cake Ordered')
+                resolve()
+            },1000)
+        })
+    }
+    function sendInvites (){
+        return new Promise(function(resolve, reject){
+            setTimeout(function(){
+                console.log('Invitations Send')
+                resolve()
+            },1000)
+        })
+    }
+    function buyDecoration (){
+        return new Promise(function(resolve, reject){
+            setTimeout(function(){
+                console.log('Decoration Purchased')
+                resolve()
+            },1000)
+        })
+    }
+    function setupVenue (){
+        return new Promise(function(resolve, reject){
+            setTimeout(function(){
+                console.log('Venue Setted Up')
+                resolve()
+            },1000)
+        })
+    }
+
+    //using promises
+    // bookVenue()
+    // .then(orderCake)
+    // .then(sendInvites)
+    // .then(buyDecoration)
+    // .then(setupVenue)
+    // .then(() => console.log('Party Ready'))
+
+    //using async-await
+    async function arrangeParty(){
+        await bookVenue()
+        await orderCake()
+        await sendInvites()
+        await buyDecoration()
+        await setupVenue()
+        console.log('Party Ready')
+    }
+    arrangeParty()
+</script>
+
+</html>
