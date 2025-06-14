@@ -10,6 +10,9 @@ Person.prototype.sayHello = function () {
 
 const p1 = new Person("Kartik");
 const p2 = new Person("Riya");
+//***IMP*** : There are two problems that occur if we don't use (new) keyword over here:
+//1) No new object is created , due to this, (this) will refer to the global object or undefined in case of use strict.
+//2) The object will not be able to access the functions added inside the prototype.
 
 p1.sayHello(); // Hello, my name is Kartik
 p2.sayHello(); // Hello, my name is Riya
