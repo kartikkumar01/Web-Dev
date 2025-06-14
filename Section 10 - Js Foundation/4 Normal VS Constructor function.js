@@ -1,6 +1,6 @@
 //Q- What is the difference between the normal function and a constructor function, when both can return a object?
 
-//A- So the main difference is that we can attach shared methods via .prototype in case of functional constructor, so every instance can access them without duplicating code.
+//A- So the main difference is that we can add shared methods or properties via .prototype in case of functional constructor, so every instance can access them without duplicating code.
 
 //1) Normal function
 // function createUser(name) {
