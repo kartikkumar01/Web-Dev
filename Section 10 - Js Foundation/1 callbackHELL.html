@@ -117,11 +117,14 @@
 
     //async-await are used to handle the promises. It makes the code look like sync code.
     //async function will always returns a promise
-    //await pauses the further execution until the promise is completed
+    //await pauses the further execution of the async function
     //If the promise is resolved then the value is returned
     //If the promise is rejected then the error is thrown which needs to be handled by using try-catch.
     //If the return value is not promise, then Js automatically wraps that return value into a resolved promise
-
+    
+    //⚠️ Common Misconception
+    //Some people think await pauses the whole program. That’s wrong.
+    //✅ It only pauses the current async function, not the entire JS engine or UI.
 
     //fetch()
     //It is a function which returns a promise.
