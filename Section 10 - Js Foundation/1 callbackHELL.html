@@ -121,6 +121,14 @@
     //If the promise is resolved then the value is returned
     //If the promise is rejected then the error is thrown which needs to be handled by using try-catch.
     //If the return value is not promise, then Js automatically wraps that return value into a resolved promise
+
+
+    //fetch()
+    //It is a function which returns a promise.
+    //The returned promise is then handled by then or catch
+    //It has high priority(priority queue) than any other async operation
+    //It only rejects the promise if there is network issue(means the request is not able to reach server)
+    //For errors like 404(Page not found), we need to manually check the response.ok property or response.status
 </script>
 
 </html>
