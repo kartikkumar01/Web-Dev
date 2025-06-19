@@ -4,7 +4,7 @@
 
 </body>
 <script>
-    //CALLBACK HELL (Many Dependent async tasks)
+    //------------------CALLBACK HELL (Many Dependent async tasks)-----------------------------------
     /*function bookVenue (callback){
         setTimeout(function(){
             console.log('Venue Booked')
@@ -52,7 +52,7 @@
 
     //Problems of Callback HELL - Hard Readablity & Inversion of control(Kisi or pe trust karna ki vo hamare diye hue function ko call karega)
     //Solutions to avoid callback hell - promises
-    
+    //-------------------------------PROMISE--------------------------------------
     //Promise is an object which represents the eventual completion or failure of an async operation.
     //To handle promises - .then()&.catch() / async-await
     
@@ -119,29 +119,69 @@
         console.log('Party Ready')
     }
     arrangeParty()
-
+//--------------------------ASYNC AWAIT WITH EXAMPLES --------------------------------------
 // async-await are used to handle promises, just like then() and catch().
 // async makes a function always return a promise.
+async function returnVal(){
+    return 'hola'
+}
+// console.log(returnVal())
+
 // await pauses the function execution until the promise is settled (either resolved or rejected).
+async function pauseExecution(){
+    console.log('Before promise resolved')
+
+    await new Promise((resolve, reject) => {
+        setTimeout(() => {
+            console.log('I am resolved')
+            resolve()
+        }, 1000)
+    })
+
+    console.log('After promise resolved')
+}
+
+// pauseExecution()
+
 
 // If the awaited promise is resolved, it returns the resolved value.
-// Example: const data = await fetch();
+
+async function awaitedPromiseResolved(){
+    let returnVal = await Promise.resolve(5)
+    console.log(returnVal)
+}
+// awaitedPromiseResolved()
 
 // If the awaited promise is rejected, the error is thrown and must be handled using try-catch.
-// Example:
-// try {
-//     const data = await fetch();
-// } catch (err) {
-//     console.error(err);
-// }
+async function awaitedPromiseRejected(){
+    try{
+        let returnVal = await Promise.reject('Error came') //behind the scenes - throw new Error('Error came')
+    }catch(error){
+        console.log('Error handled in catch')
+    }
+}
+// awaitedPromiseRejected()
 
 // If an async function returns a non-promise value, JavaScript automatically wraps it into a resolved promise.
-// Example:
-// async function test() { return 5; }
-// test().then(console.log); // logs 5, because 5 is wrapped into a resolved promise.
-
-// *** If an error is thrown inside an async function (or inside a catch block), and it’s not handled,
+// If an error is thrown inside an async function (or inside a catch block), and it’s not handled,
 // the async function returns a rejected promise with that error.
+
+async function unhandledError1(){
+    await Promise.reject('unhandledError1')
+}
+
+unhandledError1().catch((error) => console.log(error))
+
+async function unhandledError2(){
+    try{
+        await Promise.reject()
+    }catch(error){
+        throw new Error('unhandledError2')
+    }
+}
+
+unhandledError2().catch((error) => console.log(error.message))
+
 
     
     //⚠️ Common Misconception
