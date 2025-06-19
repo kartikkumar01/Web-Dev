@@ -120,13 +120,29 @@
     }
     arrangeParty()
 
-    //async-await are used to handle the promises just like then and catch.
-    //async means a function will always returns a promise
-    //await suspends the function execution and waits for the promise to be settled.
-    //If the promise is resolved then the value is returned
-    //If the promise is rejected then the error is thrown which needs to be handled by using try-catch.
-    //If the return value is not promise, then Js automatically wraps that return value into a resolved promise
-    //If the error is thrown in the catch block or the error thrown is not handled, then the async function automatically returns a rejected promise.
+// async-await are used to handle promises, just like then() and catch().
+// async makes a function always return a promise.
+// await pauses the function execution until the promise is settled (either resolved or rejected).
+
+// If the awaited promise is resolved, it returns the resolved value.
+// Example: const data = await fetch();
+
+// If the awaited promise is rejected, the error is thrown and must be handled using try-catch.
+// Example:
+// try {
+//     const data = await fetch();
+// } catch (err) {
+//     console.error(err);
+// }
+
+// If an async function returns a non-promise value, JavaScript automatically wraps it into a resolved promise.
+// Example:
+// async function test() { return 5; }
+// test().then(console.log); // logs 5, because 5 is wrapped into a resolved promise.
+
+// *** If an error is thrown inside an async function (or inside a catch block), and it’s not handled,
+// the async function returns a rejected promise with that error.
+
     
     //⚠️ Common Misconception
     //Some people think await pauses the whole program. That’s wrong.
