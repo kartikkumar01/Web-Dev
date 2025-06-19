@@ -59,6 +59,7 @@
     //PROMISE CHAINING
     //Promise chaining means that each .then() waits for the Promise returned by the previous .then() to resolve.
     //If any .then() returns a rejected Promise or throws an error, the .catch() is triggered, and all .then()s after that are skipped.
+    //If the catch handler throws an error, the Promise chain will return a rejected promise with that error.
     function bookVenue (){
         return new Promise(function(resolve, reject){
             setTimeout(function(){
