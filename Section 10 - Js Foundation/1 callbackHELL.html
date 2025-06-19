@@ -125,6 +125,7 @@
     //If the promise is resolved then the value is returned
     //If the promise is rejected then the error is thrown which needs to be handled by using try-catch.
     //If the return value is not promise, then Js automatically wraps that return value into a resolved promise
+    //If the error is thrown in the catch block or the error thrown is not handled, then the async function automatically returns a rejected promise.
     
     //⚠️ Common Misconception
     //Some people think await pauses the whole program. That’s wrong.
